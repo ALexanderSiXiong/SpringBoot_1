@@ -1,0 +1,7 @@
+1. By reading the “Playfair.pdf” document, you may gain an overall understanding of how has Playfair algorithm been designed or been operated. 
+In compare to frequency analysis, the Playfair algorithm is significantly harder to break by using a secret passcode/key, which is unknown to cryptographer.     
+
+2. For breaking the Playfair cipher text outlined in your Lab sheet exercise, you need to Obtain the decryption key (passcode) by breaking /decrypting the Cipher “Q2F0YWxpbmE=” 
+
+Good Luck :)   
+

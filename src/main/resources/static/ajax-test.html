@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Test</title>
+</head>
+<body class="hold-transition login-page">
+<div style="width: 720px; margin: 7% auto">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="m-0">Interface Test_1</h5>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" id="info" class="form-control" placeholder="input info">
+                            <h6 class="card-title">Return from Interface_1</h6>
+                            <p class="card-text" id="test1"></p>
+                            <a href="#" class="btn btn-primary" onclick="requestTest1()">Send Request1</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h5 class="m-0">Interface Test_2</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Return from Interface_2</h6>
+                            <p class="card-text" id="test2"></p>
+                            <!--fixed a bug at 'onclick'-->
+                            <a href="#" class="btn btn-primary" onclick="requestTest2()">Send Request2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/1.12.0/jquery.min.js"></script>
+<script type = "text/javascript">
+    function requestTest1(){
+        var info = $("#info").val();
+        $.ajax({
+            type:"GET",
+            dataType:"text",
+            url:"api/test1?info="+info,
+            contentType: "application/json; charset=utf-8",
+            success: function(result){
+                $("#test1").html(JSON.stringify(result));
+            },
+            error: function () {
+                $("#test1").html("Interface Error.");
+            }
+        });
+    }
+
+    function requestTest2() {
+        $.ajax({
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "api/test2",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $("#test2").html(JSON.stringify(result));
+            },
+            error: function () {
+                $("#test2").html("Interface Error.");
+            }
+        });
+    }
+</script>
+</body>
+</html>
